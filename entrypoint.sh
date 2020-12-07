@@ -4,6 +4,8 @@ echo " ************** MODIFIED FILES"
 printf ${MODIFIED_FILES}
 printf "\n*****************************\n"
 
+PATHS=$(printf ${MODIFIED_FILES} | tr \\n '\n')
+
 URI="https://api.github.com"
 addLabel="holycode"
 API_HEADER="Accept: application/vnd.github.v3+json"
