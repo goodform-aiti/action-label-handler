@@ -1,14 +1,6 @@
 #!/bin/bash
 
 echo " ************** MODIFIED FILES"
-printf ${MODIFIED_FILES}
-printf "\n*****************************\n"
-ls -l
-printf "\n*****************************\n"
-ls /
-printf "\n*****************************\n"
-ls ~
-printf "\n*****************************\n"
 
 PATHS=$(printf ${MODIFIED_FILES} | tr \\n '\n')
 
@@ -25,7 +17,7 @@ IS_CORE_FILE=$(echo $PATHS | grep -P "^.*app/code/core/.+$" | wc -l)
 is_holycode_label_eligible () {
   for MODIFIED_FILE in $PATHS
   do
-      IS_MODIFIED_FILE_EXISTS_IN_OPENMAGE=$(cat openmage_files_v1.6.txt | grep -P "^.*${MODIFIED_FILE}" | wc -l)
+      IS_MODIFIED_FILE_EXISTS_IN_OPENMAGE=$(cat /openmage_files_v1.6.txt | grep -P "^.*${MODIFIED_FILE}" | wc -l)
       if [[ $IS_MODIFIED_FILE_EXISTS_IN_OPENMAGE == 1 || $IS_CORE_FILE == 1 ]]
       then
         return 1
