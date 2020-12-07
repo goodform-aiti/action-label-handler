@@ -8,8 +8,8 @@ COPY "entrypoint.sh" "/entrypoint.sh"
 COPY "openmage_files.txt" "/openmage_files.txt"
 
 RUN apt-get update && \
-    apt-get install jq && \
-    apt-get upgrade -y
+    apt-get upgrade -y && \
+    apt-get install -y jq
 
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
