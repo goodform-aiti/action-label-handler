@@ -1,6 +1,8 @@
 #!/bin/bash
 
 echo " ************** MODIFIED FILES"
+printf ${MODIFIED_FILES}
+printf "\n*****************************\n"
 
 PATHS=$(printf ${MODIFIED_FILES} | tr \\n '\n')
 
