@@ -5,6 +5,10 @@ printf ${MODIFIED_FILES}
 printf "\n*****************************\n"
 ls -l
 printf "\n*****************************\n"
+ls /
+printf "\n*****************************\n"
+ls ~
+printf "\n*****************************\n"
 
 PATHS=$(printf ${MODIFIED_FILES} | tr \\n '\n')
 
