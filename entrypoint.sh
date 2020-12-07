@@ -3,6 +3,8 @@
 echo " ************** MODIFIED FILES"
 printf ${MODIFIED_FILES}
 printf "\n*****************************\n"
+ls -l
+printf "\n*****************************\n"
 
 PATHS=$(printf ${MODIFIED_FILES} | tr \\n '\n')
 
