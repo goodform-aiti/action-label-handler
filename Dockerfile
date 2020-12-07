@@ -5,7 +5,7 @@ LABEL version="1.0"
 LABEL maintainer="Amir Alian <amir@ateli.cz>"
 
 COPY "entrypoint.sh" "/entrypoint.sh"
-COPY "openmage_files.txt" "/openmage_files.txt"
+COPY "openmage_files_v1.6.txt" "/openmage_files_v1.6.txt"
 
 RUN apt-get update && \
     apt-get upgrade -y && \
