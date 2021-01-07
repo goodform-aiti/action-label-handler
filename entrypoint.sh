@@ -14,7 +14,7 @@ number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 
 
 
-IS_CORE_FILE=$(echo $PATHS | grep -P "^.*app/code/core/.+$" | wc -l)
+IS_CORE_FILE=$(echo $PATHS | grep -P "^app/code/core/.+$" | wc -l)
 
 is_holycode_label_eligible () {
   for MODIFIED_FILE in $PATHS
