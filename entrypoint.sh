@@ -13,13 +13,13 @@ AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 
 
-
-IS_CORE_FILE=$(echo $PATHS | grep -P "^app/code/core/.+$" | wc -l)
-
 is_holycode_label_eligible () {
+  IS_CORE_FILE=$(echo $PATHS | grep -P "^app/code/core/.+$" | wc -l)
+
   for MODIFIED_FILE in $PATHS
   do
       IS_MODIFIED_FILE_EXISTS_IN_OPENMAGE=$(cat /openmage_files_v1.6.txt | grep -P "^.*${MODIFIED_FILE}" | wc -l)
+
       if [[ $IS_MODIFIED_FILE_EXISTS_IN_OPENMAGE == 1 || $IS_CORE_FILE == 1 ]]
       then
         return 1
@@ -28,7 +28,9 @@ is_holycode_label_eligible () {
 
   return 0
 }
+
 is_holycode_label_eligible
+
 if [[ $? == 1 ]]
 then
   echo "The holycode label is eligible"
